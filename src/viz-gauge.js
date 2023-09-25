@@ -154,6 +154,7 @@ function processData(data, queryResponse, config, viz) {
         ? tarLabel
         : config.bar_target_label_override,
     target_dimension: tarDim,
+    range_formatting: bar_value_formatting
   };
   return chunk;
 }
@@ -454,7 +455,8 @@ looker.plugins.visualizations.add({
       target_rendered: chunk.target_rendered,
       value_links: chunk.value_links,
       label_font: config.bar_label_font_size,
-      range_formatting: config.bar_range_formatting,
+      // If no range formatting set use the same as bar value
+      range_formatting: config.bar_range_formatting ?? chunk.range_formatting,
       range_x: config.bar_range_x,
       range_y: config.bar_range_y,
       gauge_fill_type: config.bar_gauge_fill_type,

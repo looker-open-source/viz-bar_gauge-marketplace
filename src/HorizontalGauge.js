@@ -308,7 +308,7 @@ const drawHorizontal = props => {
             d3.select('.target-fill').node().getBBox().height
         );
       if (props.target_label_type === 'value') {
-        var labelPackage = `${props.target}`;
+        var labelPackage = `${props.target_rendered}`;
       } else if (props.target_label_type === 'label') {
         var labelPackage = `${props.target_label}`;
       } else if (props.target_label_type === 'both') {

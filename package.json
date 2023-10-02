@@ -31,11 +31,11 @@
     "jsdom": "^11.11.0",
     "lodash": "^4.17.19",
     "moment": "^2.24.0",
-    "to-string-loader": "^1.1.5",
     "react": "^16.8.3",
     "react-dom": "^16.7.0",
     "ssf": "^0.10.2",
     "styled-components": "^4.3.2",
+    "to-string-loader": "^1.1.5",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.9",
@@ -43,5 +43,8 @@
   },
   "resolutions": {
     "js-yaml": "3.13.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

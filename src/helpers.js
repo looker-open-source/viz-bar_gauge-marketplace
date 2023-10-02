@@ -143,7 +143,7 @@ export function processData(data, queryResponse, config, viz) {
           ? data[0][dimID].value
           : config.bar_value_label_override
         : null,
-    value_formatting: bar_value_formatting,
+    value_formatting: config.bar_value_formatting,
     target: tarValue,
     target_rendered: tarRendered,
     target_label:

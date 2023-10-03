@@ -1,13 +1,15 @@
 import SSF from 'ssf';
 
 export function processData(data, queryResponse, config, viz) {
-  let dims, meas;
+  let dims, dimID, dimData;
+  let meas, mesID, mesData, mesLabel, mesRendered;
+  let tarID, tarData, tarValue, tarLabel, tarBase, tarRendered, tarDim;
   dims = queryResponse['fields']['dimension_like'];
   meas = queryResponse['fields']['measure_like'];
 
   if (dims.length > 0) {
-    var dimID = dims[0]['name'];
-    var dimData = data[0][dimID];
+    dimID = dims[0]['name'];
+    dimData = data[0][dimID];
   }
   if (
     config.bar_value_label_type === 'dim' ||
@@ -31,13 +33,13 @@ export function processData(data, queryResponse, config, viz) {
       });
     }
   }
-  var mesID = meas[0]['name'];
-  var mesData = data[0][mesID];
-  var mesLabel =
+  mesID = meas[0]['name'];
+  mesData = data[0][mesID];
+  mesLabel =
     meas[0]['label_short'] === undefined
       ? meas[0]['label']
       : meas[0]['label_short'];
-  var mesRendered =
+  mesRendered =
     mesData.rendered === undefined ? mesData.value : mesData.rendered;
 
   if (config.bar_target_source === 'second') {
@@ -47,22 +49,22 @@ export function processData(data, queryResponse, config, viz) {
         message: 'Add a second measure or modify label type.',
       });
     }
-    var tarID = meas[1]['name'];
-    var tarData = data[0][tarID];
-    var tarValue = tarData.value;
-    var tarLabel =
+    tarID = meas[1]['name'];
+    tarData = data[0][tarID];
+    tarValue = tarData.value;
+    tarLabel =
       meas[1]['label_short'] === undefined
         ? meas[1]['label']
         : meas[1]['label_short'];
-    var tarBase =
+    tarBase =
       tarData.rendered === undefined ? tarData.value : tarData.rendered;
-    var tarRendered =
+    tarRendered =
       config.bar_target_value_format === undefined ||
       config.bar_target_value_format === ''
         ? tarBase
         : SSF.format(config.bar_target_value_format, tarValue);
     if (dims.length > 0) {
-      var tarDim =
+      tarDim =
         config.bar_target_label_override === undefined ||
         config.bar_target_label_override === ''
           ? data[0][dimID].value
@@ -75,20 +77,20 @@ export function processData(data, queryResponse, config, viz) {
         message: 'No value to target. Add a second row or modify label type.',
       });
     }
-    var tarData = data[1][mesID];
-    var tarValue = tarData.value;
-    var tarBase =
+    tarData = data[1][mesID];
+    tarValue = tarData.value;
+    tarBase =
       tarData.rendered === undefined || tarData.rendered === ''
         ? tarValue
         : tarData.rendered;
-    var tarLabel = mesLabel;
-    var tarRendered =
+    tarLabel = mesLabel;
+    tarRendered =
       config.bar_target_value_format === undefined ||
       config.bar_target_value_format === ''
         ? tarBase
         : SSF.format(config.bar_target_value_format, tarValue);
     if (dims.length > 0) {
-      var tarDim =
+      tarDim =
         config.bar_target_label_override === undefined ||
         config.bar_target_label_override === ''
           ? data[1][dimID].value
@@ -106,16 +108,16 @@ export function processData(data, queryResponse, config, viz) {
           'No target override. Add an override value or modify label type.',
       });
     }
-    var tarValue = parseFloat(config.bar_target_value_override);
-    var tarBase = tarValue;
-    var tarLabel = config.bar_target_label_override;
-    var tarRendered =
+    tarValue = parseFloat(config.bar_target_value_override);
+    tarBase = tarValue;
+    tarLabel = config.bar_target_label_override;
+    tarRendered =
       config.bar_target_value_format === undefined ||
       config.bar_target_value_format === ''
         ? tarBase
         : SSF.format(config.bar_target_value_format, tarValue);
     if (dims.length > 0) {
-      var tarDim =
+      tarDim =
         config.bar_target_label_override === undefined ||
         config.bar_target_label_override === ''
           ? data[0][dimID].value

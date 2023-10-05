@@ -1,9 +1,9 @@
 import VerticalGauge from './VerticalGauge';
 import HorizontalGauge from './HorizontalGauge';
-import { vizConfig } from './viz-config';
+import {vizConfig} from './viz-config';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { getBarDefaults, processData } from './helpers';
+import {getBarDefaults, processData} from './helpers';
 
 // const formattedValue = dataPoints[0].valueFormat === "" ? dataPoints[0].formattedValue : SSF.format(dataPoints[0].valueFormat, dataPoints[0].value)
 looker.plugins.visualizations.add({

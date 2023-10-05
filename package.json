@@ -4,10 +4,11 @@
   "description": "",
   "main": "",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "prepare": "bin/bootstrap",
+    "build": "env NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.config.js",
     "start": "webpack-dev-server --open",
-    "watch": "webpack --config webpack.config.js --watch --progress",
-    "format": "prettier --ignore-path .gitignore --write '**/*.js'",
+    "watch": "env NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.config.js --watch --progress",
+    "format": "prettier --ignore-path .gitignore --write src",
     "test": "jest"
   },
   "author": "Apps Team <marketplace@looker.com>",

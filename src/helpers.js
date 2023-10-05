@@ -1,11 +1,12 @@
 import SSF from 'ssf';
 
 export function processData(data, queryResponse, config, viz) {
-  let dims, dimID, dimData;
-  let meas, mesID, mesData, mesLabel, mesRendered;
+  const dims = queryResponse['fields']['dimension_like'];
+  const meas = queryResponse['fields']['measure_like'];
+
+  let dimID, dimData;
+  let mesID, mesData, mesLabel, mesRendered;
   let tarID, tarData, tarValue, tarLabel, tarBase, tarRendered, tarDim;
-  dims = queryResponse['fields']['dimension_like'];
-  meas = queryResponse['fields']['measure_like'];
 
   if (dims.length > 0) {
     dimID = dims[0]['name'];
@@ -56,8 +57,7 @@ export function processData(data, queryResponse, config, viz) {
       meas[1]['label_short'] === undefined
         ? meas[1]['label']
         : meas[1]['label_short'];
-    tarBase =
-      tarData.rendered === undefined ? tarData.value : tarData.rendered;
+    tarBase = tarData.rendered === undefined ? tarData.value : tarData.rendered;
     tarRendered =
       config.bar_target_value_format === undefined ||
       config.bar_target_value_format === ''
@@ -99,8 +99,7 @@ export function processData(data, queryResponse, config, viz) {
   } else if (config.bar_target_source === 'override') {
     if (
       config.bar_target_value_override === undefined ||
-      config.bar_target_value_override === '' &&
-      viz
+      (config.bar_target_value_override === '' && viz)
     ) {
       viz.addError({
         title: 'Invalid Input.',
@@ -153,7 +152,7 @@ export function processData(data, queryResponse, config, viz) {
       config.bar_target_label_override === ''
         ? tarLabel
         : config.bar_target_label_override,
-    target_dimension: tarDim
+    target_dimension: tarDim,
   };
   return chunk;
 }
@@ -174,9 +173,7 @@ export function getBarDefaults(width, height, margin, config, chunk) {
       chunk.value > config.bar_range_max ? config.bar_range_max : chunk.value,
     value_rendered: chunk.value_rendered,
     target:
-      chunk.target > config.bar_range_max
-        ? config.bar_range_max
-        : chunk.target,
+      chunk.target > config.bar_range_max ? config.bar_range_max : chunk.target,
     value_label: chunk.value_label,
     target_label: chunk.target_label,
     value_dimension: chunk.value_dimension,

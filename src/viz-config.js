@@ -222,6 +222,6 @@ export const vizConfig = {
       section: 'Style',
       display: 'color',
       order: 40,
-    }
-  }
-}
+    },
+  },
+};

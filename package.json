@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "prepare": "bin/bootstrap",
-    "build": "env NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
+    "build:legacy": "env NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.config.js",
     "start": "webpack-dev-server --open",
     "watch": "env NODE_OPTIONS='--openssl-legacy-provider' webpack --config webpack.config.js --watch --progress",
     "format": "prettier --ignore-path .gitignore --write src",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/looker-open-source/viz-bar_gauge-marketplace/compare/v1.0.0...v1.0.1) (2026-05-22)
+
+
+### Bug Fixes
+
+* update manifest.lkml to point to GCP CDN ([#76](https://github.com/looker-open-source/viz-bar_gauge-marketplace/issues/76)) ([d2d3512](https://github.com/looker-open-source/viz-bar_gauge-marketplace/commit/d2d3512f013c915eee7264f2042bdf9ccf713486))
+
 ## 1.0.0 (2024-09-17)
 
 

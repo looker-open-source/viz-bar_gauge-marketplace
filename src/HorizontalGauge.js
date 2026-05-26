@@ -6,6 +6,10 @@ const HorizontalGauge = props => {
   useEffect(() => {
     d3.select('.viz > *').remove();
     drawHorizontal(props);
+
+    if (props.doneRendering) {
+      props.doneRendering();
+    }
   }, [props]);
   return <div className="viz" />;
 };

@@ -6,6 +6,10 @@ const VerticalGauge = props => {
   useEffect(() => {
     d3.select('.viz > *').remove();
     drawVertical(props);
+
+    if (props.doneRendering) {
+      props.doneRendering();
+    }
   }, [props]);
   return <div className="viz" />;
 };

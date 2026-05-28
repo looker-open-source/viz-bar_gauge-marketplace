@@ -31,9 +31,6 @@ looker.plugins.visualizations.add({
         width = element.clientWidth,
         height = element.clientHeight;
 
-      // Clear any errors from previous updates
-      this.clearErrors();
-
       // Throw some errors and exit if the shape of the data isn't what this chart needs
       if (
         queryResponse.fields?.dimension_like?.length > 1 ||
@@ -43,6 +40,7 @@ looker.plugins.visualizations.add({
           title: 'Invalid Input.',
           message: 'This chart accepts up to 1 dimension and 2 measures.',
         });
+        done();
         return;
       }
 

@@ -4,11 +4,15 @@ import SSF from 'ssf';
 
 const VerticalGauge = props => {
   useEffect(() => {
-    d3.select('.viz > *').remove();
-    drawVertical(props);
-
-    if (props.doneRendering) {
-      props.doneRendering();
+    try {
+      d3.select('.viz > *').remove();
+      drawVertical(props);
+    } catch (error) {
+      console.error('Error drawing vertical gauge:', error);
+    } finally {
+      if (props.doneRendering) {
+        props.doneRendering();
+      }
     }
   }, [props]);
   return <div className="viz" />;

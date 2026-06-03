@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/looker-open-source/viz-bar_gauge-marketplace/compare/v1.0.1...v1.0.2) (2026-05-29)
+
+
+### Bug Fixes
+
+* done callback handling to mitigate blank tiles update ([#78](https://github.com/looker-open-source/viz-bar_gauge-marketplace/issues/78)) ([62839ee](https://github.com/looker-open-source/viz-bar_gauge-marketplace/commit/62839ee7d731cd74e646c0939a731fdaae5c5b3a))
+
 ## [1.0.1](https://github.com/looker-open-source/viz-bar_gauge-marketplace/compare/v1.0.0...v1.0.1) (2026-05-22)
 
 

@@ -8,9 +8,12 @@ var webpackConfig = {
     bargauge: './src/viz-gauge.js',
   },
   devServer: {
-    contentBase: './dist',
+    static: {
+      directory: './dist',
+    },
   },
   output: {
+    hashFunction: 'sha256',
     filename: 'dist/bundle.js',
     path: path.resolve(__dirname),
     library: '[name]',

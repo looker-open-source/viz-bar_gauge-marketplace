@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/looker-open-source/viz-bar_gauge-marketplace/compare/v1.0.2...v1.0.5) (2026-11-10)
+
+
+### Miscellaneous Chores
+
+* sync release version with marketplace listing ([#114](https://github.com/looker-open-source/viz-bar_gauge-marketplace/issues/114)) ([dbc63e0](https://github.com/looker-open-source/viz-bar_gauge-marketplace/commit/dbc63e0d301c6d5925a2f09ff9d64828551507f1))
+
 ## [1.0.2](https://github.com/looker-open-source/viz-bar_gauge-marketplace/compare/v1.0.1...v1.0.2) (2026-05-29)
 
 
